@@ -1,17 +1,45 @@
 <html>
 <head>
 <title> Trippy </title>
-<script></script>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 </head>
 <body>
-	<header> Header Of Trippy </header>
-	<div> Search Bar 
-
-		<form>
-			
-		</form>
-
-	</div>
-
+<header> Header Of Trippy </header>
+	<input type="search" placeholder="Search"><br/>
+    <div class="sourceInfo">
+        <form id="sourceInfo">
+            <div class="form-group">
+                <label>Source Location</label>
+                <input type="text" class="form-control" id="sourceLocation" placeholder="Source">
+            </div>
+            <div class="form-group">
+                <label>Start Date</label>
+                <input type="date" class="form-control" id="startDate" placeholder="Date">
+            </div>
+            <button id="searchLocation" type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
+<script>
+    var placeField = document.getElementById("sourceLocation");
+    var place = placeField.value;
+    var dateField = document.getElementById("startDate");
+    var date = dateField.value;
+    console.log(place,date);
+$("#sourceInfo").submit(function(){
+    $.ajax({
+            type: 'GET',
+            url: "/sevenwonders/" + place + "/date/" + date,
+            dataType: 'json',
+            encode: true,
+            timeout: 8000
+        })
+        .done(function(data) {
+            console.log(data);
+        });
+});
+</script>
 </body>
 </html>
