@@ -1,0 +1,9 @@
+{
+	"name": "theraiway",
+	"description": "theraiway website",
+	"main": "server.js",
+	"dependencies": {
+		"express": "~4.0.0"
+	},
+	"private": true
+}
