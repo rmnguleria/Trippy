@@ -3,7 +3,9 @@
 	"description": "theraiway website",
 	"main": "server.js",
 	"dependencies": {
-		"express": "~4.0.0"
+		"express": "~4.0.0",
+		"shortest-route": "~0.0.7",
+		"async": "~1.5.0"
 	},
 	"private": true
 }
